@@ -11,3 +11,13 @@ int shouldFurnaceTurnOn(int temperature)
 	
 	return 0;
 }
+
+int shouldFurnaceTurnOff(int temperature)
+{
+	if(temperature >= 70)
+	{
+		return 1;
+	}
+
+	return 0;
+}

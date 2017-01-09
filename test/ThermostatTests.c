@@ -13,11 +13,20 @@ START_TEST(ShouldTurnOnFurnaceIfBelow60F)
 }
 END_TEST
 
+START_TEST(SouldTurnOffFurnaceIfAboveUpper)
+{
+	int upper = 70;
+	int turnOff = shouldFurnaceTurnOff(upper);
+	ck_assert_int_eq(1, turnOff);
+}
+END_TEST
+
 Suite* thermostatSuite(void)
 {
 	Suite* suite = suite_create("Thermostat Tests");
 	TCase* thermostatCase = tcase_create("Thermostat Tests");
 	tcase_add_test(thermostatCase, ShouldTurnOnFurnaceIfBelow60F);
+	tcase_add_test(thermostatCase, SouldTurnOffFurnaceIfAboveUpper);
 
 	suite_add_tcase(suite, thermostatCase);
 	
