@@ -7,8 +7,9 @@
 
 START_TEST(ShouldTurnOnFurnaceIfBelow60F)
 {
-	ck_assert_int_eq(0, 1);
+	int turnOn = shouldFurnaceTurnOn(50);
 
+	ck_assert_int_eq(1, turnOn);
 }
 END_TEST
 

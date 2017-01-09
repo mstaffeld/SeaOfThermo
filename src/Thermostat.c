@@ -2,8 +2,7 @@
 
 #include "Thermostat.h"
 
-int shouldTurnOn(int temperature)
+int shouldFurnaceTurnOn(int temperature)
 {
-
 	return 0;
 }
