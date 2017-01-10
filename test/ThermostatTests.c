@@ -4,16 +4,15 @@
 #include "ThermostatTests.h"
 #include "../src/Thermostat.h"
 
-
-START_TEST(ShouldTurnOnFurnaceIfBelow60F)
+START_TEST(ShouldTurnFurnaceOnIfBelowLower)
 {
-	int turnOn = shouldFurnaceTurnOn(50);
+	int turnOn = shouldFurnaceTurnOn(49);
 
 	ck_assert_int_eq(1, turnOn);
 }
 END_TEST
 
-START_TEST(SouldTurnOffFurnaceIfAboveUpper)
+START_TEST(SouldTurnFurnaceOffIfAboveUpper)
 {
 	int upper = 70;
 	int turnOff = shouldFurnaceTurnOff(upper);
@@ -25,8 +24,9 @@ Suite* thermostatSuite(void)
 {
 	Suite* suite = suite_create("Thermostat Tests");
 	TCase* thermostatCase = tcase_create("Thermostat Tests");
-	tcase_add_test(thermostatCase, ShouldTurnOnFurnaceIfBelow60F);
-	tcase_add_test(thermostatCase, SouldTurnOffFurnaceIfAboveUpper);
+	tcase_add_test(thermostatCase, ShouldTurnFurnaceOnIfBelowLower
+);
+	tcase_add_test(thermostatCase, SouldTurnFurnaceOffIfAboveUpper);
 
 	suite_add_tcase(suite, thermostatCase);
 	

@@ -2,9 +2,13 @@
 
 #include "Thermostat.h"
 
+// Read from environment variables or .ini?
+static const int LOWER_TEMP_F = 50;
+static const int UPPER_TEMP_F = 70;
+
 int shouldFurnaceTurnOn(int temperature)
 {
-	if(temperature < 60)
+	if(temperature < LOWER_TEMP_F)
 	{
 		return 1;
 	}
@@ -14,7 +18,7 @@ int shouldFurnaceTurnOn(int temperature)
 
 int shouldFurnaceTurnOff(int temperature)
 {
-	if(temperature >= 70)
+	if(temperature >= UPPER_TEMP_F)
 	{
 		return 1;
 	}
