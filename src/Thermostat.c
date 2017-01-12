@@ -1,15 +1,17 @@
 #include <stdio.h>
 
 #include "Thermostat.h"
+#include "Furnace.h"
 
 // Read from environment variables or .ini?
-static const int LOWER_TEMP_F = 50;
+static const int LOWER_TEMP_F = 60;
 static const int UPPER_TEMP_F = 70;
 
 int shouldFurnaceTurnOn(int temperature)
 {
 	if(temperature < LOWER_TEMP_F)
 	{
+		turnFurnaceOn();
 		return 1;
 	}
 	

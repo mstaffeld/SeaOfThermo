@@ -12,6 +12,15 @@ START_TEST(ShouldTurnFurnaceOnIfBelowLower)
 }
 END_TEST
 
+START_TEST(ShouldTurnFurnaceOnDependency)
+{
+	int turnOn = shouldFurnaceTurnOn(49);
+
+	
+	ck_assert_int_eq(1, turnOn);
+}
+END_TEST
+
 START_TEST(SouldTurnFurnaceOffIfAboveUpper)
 {
 	int upper = 70;
@@ -24,9 +33,9 @@ Suite* thermostatSuite(void)
 {
 	Suite* suite = suite_create("Thermostat Tests");
 	TCase* thermostatCase = tcase_create("Thermostat Tests");
-	tcase_add_test(thermostatCase, ShouldTurnFurnaceOnIfBelowLower
-);
+	tcase_add_test(thermostatCase, ShouldTurnFurnaceOnIfBelowLower);
 	tcase_add_test(thermostatCase, SouldTurnFurnaceOffIfAboveUpper);
+	tcase_add_test(thermostatCase, ShouldTurnFurnaceOnDependency);
 
 	suite_add_tcase(suite, thermostatCase);
 	

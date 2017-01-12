@@ -12,3 +12,6 @@ compile: $(OBJECTS) $(TESTOBJECTS)
 
 clean:
 	git clean -dxf
+
+print-%: ; @echo $*=$($*)
+
